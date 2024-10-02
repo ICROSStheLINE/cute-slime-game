@@ -65,9 +65,11 @@
     <Compile Include="Assets\Scripts\fedoraFlamingo\FedoraFlamingoAttackSlash.cs" />
     <Compile Include="Assets\Scripts\MiscScripts\SelfDestructTimer.cs" />
     <Compile Include="Assets\Scripts\cuteSlime\SprayProjectile.cs" />
+    <Compile Include="Assets\Scripts\MiscScripts\FollowObject.cs" />
     <Compile Include="Assets\Scripts\evilFlamingo\FlamingoProjectileBehaviour.cs" />
     <Compile Include="Assets\Scripts\cuteSlime\Launch.cs" />
     <Compile Include="Assets\Scripts\cuteSlime\SlimeStats.cs" />
+    <Compile Include="Assets\Scripts\MiscScripts\BreakableWallScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
