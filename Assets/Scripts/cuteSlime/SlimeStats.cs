@@ -55,6 +55,21 @@ public class SlimeStats : MonoBehaviour
 	public static readonly float dieAnimationDuration = 0.5f / dieAnimationDurationSpeedMultiplier;
 	public static readonly float dieAnimationFrames = 6;
 	
+	void Start()
+	{
+		anim = GetComponent<Animator>();
+	}
+	
+	public void Die()
+	{
+		canTriggerLaunch = false;
+		canTriggerSprayUp = false;
+		canTriggerTurn = false;
+		canTriggerWalk = false;
+		anim.SetBool("isSprayingUp", false);
+		anim.SetBool("isDying", true);
+		Destroy(gameObject, dieAnimationDuration);
+	}
 	
 	
 	void OnCollisionEnter2D(Collision2D collision)
@@ -77,18 +92,10 @@ public class SlimeStats : MonoBehaviour
 	{
 		if (collision.gameObject.tag == "Death Zone")
 		{
-			canTriggerLaunch = false;
-			canTriggerSprayUp = false;
-			canTriggerTurn = false;
-			canTriggerWalk = false;
-			anim.SetBool("isSprayingUp", false);
-			anim.SetBool("isDying", true);
-			Destroy(gameObject, dieAnimationDuration);
+			Die();
 		}
 	}
 	
-	void Start()
-	{
-		anim = GetComponent<Animator>();
-	}
+	
+	
 }

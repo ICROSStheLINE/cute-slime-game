@@ -87,14 +87,20 @@ public class flamingoBehaviour : MonoBehaviour
 		isPacing = true;
 		isAttacking = false;
 	}
+	
+	void Die()
+	{
+		StopAllCoroutines();
+		isDying = true;
+		anim.SetBool("isDying", true);
+		Destroy(gameObject, deathAnimationDuration);
+	}
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.tag == "Slime Spray Projectile")
 		{
-			isDying = true;
-			anim.SetBool("isDying", true);
-			Destroy(gameObject, deathAnimationDuration);
+			Die();
 		}
 	}
 
