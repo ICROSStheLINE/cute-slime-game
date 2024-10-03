@@ -34,14 +34,14 @@ public class flamingoAggroRadius : MonoBehaviour
 		{
 			if ((collision.gameObject.tag == "Player") && (fedoraFlamingoBehaviour.isAttacking == false))
 			{
-				StartCoroutine(fedoraFlamingoBehaviour.Attack());
+				fedoraFlamingoBehaviour.StartCoroutine("Attack");
 			}
 		}
 		else
 		{
 			if ((collision.gameObject.tag == "Player") && (daddyFlamingoBehaviour.isAttacking == false))
 			{
-				StartCoroutine(daddyFlamingoBehaviour.Attack());
+				daddyFlamingoBehaviour.StartCoroutine("Attack");
 			}
 		}
 	}
