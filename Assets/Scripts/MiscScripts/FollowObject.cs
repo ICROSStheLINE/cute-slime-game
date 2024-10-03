@@ -5,8 +5,9 @@ using UnityEngine;
 public class FollowObject : MonoBehaviour
 {
 	[SerializeField] GameObject objectToFollow;
-	[SerializeField] Vector2 offset;
+	[SerializeField] Vector3 offset;
 	[SerializeField] float speed = 0;
+	[SerializeField] bool destroyIfFollowedObject = true;
 
     void Start()
     {
@@ -17,9 +18,9 @@ public class FollowObject : MonoBehaviour
     {
 		if (objectToFollow)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, objectToFollow.transform.position + new Vector3(offset.x, offset.y, 0), speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, objectToFollow.transform.position + new Vector3(offset.x, offset.y, offset.z), speed * Time.deltaTime);
 		}
-		else
+		else if (destroyIfFollowedObject)
 		{
 			Destroy(gameObject);
 		}
