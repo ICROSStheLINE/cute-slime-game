@@ -72,14 +72,6 @@ public class SlimeStats : MonoBehaviour
 	}
 	
 	
-	void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.tag == "Floor")
-		{
-			isTouchingFloor = true;
-		}
-	}
-	
 	void OnCollisionExit2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Floor")
@@ -87,6 +79,15 @@ public class SlimeStats : MonoBehaviour
 			isTouchingFloor = false;
 		}
 	}
+	
+	void OnCollisionStay2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Floor")
+		{
+			isTouchingFloor = true;
+		}
+	}
+	
 	
 	void OnTriggerEnter2D(Collider2D collision)
 	{

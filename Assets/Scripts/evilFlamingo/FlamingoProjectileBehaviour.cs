@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class FlamingoProjectileBehaviour : MonoBehaviour
 {
-	float movementSpeed = 0.2f;
+	float movementSpeed = 5f;
 
     void Start()
     {
         movementSpeed = movementSpeed * Mathf.Sign(transform.localScale.x) * -1;
-		Destroy(gameObject, 3);
+		Destroy(gameObject, 2f);
     }
 
     void FixedUpdate()
     {
-        transform.position += new Vector3(movementSpeed,0,0);
+        transform.position += new Vector3(movementSpeed * Time.fixedDeltaTime,0,0);
     }
 
 	void OnTriggerEnter2D(Collider2D collision)
